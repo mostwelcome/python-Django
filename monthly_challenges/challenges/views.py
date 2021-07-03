@@ -2,7 +2,7 @@ from django.http.response import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponse
 from collections import OrderedDict
-
+from django.template.loader import render_to_string
 from django.urls.base import reverse
 challenges = OrderedDict()
 challenges = {
@@ -31,9 +31,13 @@ def monthly_challenges_by_number(requests,month):
 
 def monthly_challenges(request,month):
     try:
-        challenge_next = challenges[month.lower()]
-        response_text = f"<h1>{challenge_next}<h1>"
-        return HttpResponse(response_text)
+        challenge_text = challenges[month.lower()]
+        return render(request,"challenges/challenge.html",{
+            'text':challenge_text,
+            'month':month}
+            )
+        # response_text = render_to_string("challenges/challenge.html")
+        # return HttpResponse(response_text)
     except:
         return HttpResponseNotFound("This month is not supported")
 
