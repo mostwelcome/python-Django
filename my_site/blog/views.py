@@ -1,12 +1,10 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
 
-def starting_page(request):
-    return render(request,"blog/index.html")
+class HomePageView(TemplateView):
+    template_name = 'blog/home.html'
 
-def posts(request):
-    pass
-
-def post_details(request):
-    pass
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['my_thing'] = "Hello World :P This is dynamic"
+        return context
