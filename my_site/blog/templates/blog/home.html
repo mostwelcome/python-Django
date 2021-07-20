@@ -1,6 +1,13 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
-<!--{%block title%} This is my awesome website {% endblock%}-->
+{%block title%} This is my awesome website {% endblock%}
 {% block content %}
-<h1>{{my_thing}}</h1>
+    {% for post in posts%}
+        {{post.text}}<br>
+            {% thumbnail post.image "200x200" crop="center" as im %}
+                <img src="{{ post.image.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% endthumbnail %}
+    <hr>
+    {% endfor%}
 {% endblock %}
