@@ -3,8 +3,8 @@
 {%block title%} Detail view {% endblock%}
 
 {% block content %}
-    Post : {{object.text}}<br>
+    {{object.text}}<br>
     Image:
-    <img src="{{object.image.url}}" style="width:100%;height:auto; ">
+    <img src="{{object.image.url}} ">
 
 {% endblock %}
