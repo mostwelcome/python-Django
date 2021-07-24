@@ -62,4 +62,3 @@ def index(request):
     # response_data = f"<ul>{list_items}</ul>"
     # return HttpResponse(response_data)
 
-# Adding a comment
