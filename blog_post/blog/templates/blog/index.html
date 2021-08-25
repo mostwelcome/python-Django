@@ -6,20 +6,16 @@ My Blog
 {% endblock %}
 
 {% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}" />
     <link rel="stylesheet" href="{% static 'blog/index.css' %}" />
 {% endblock %}
 
 
 {% block content %}
-    <header id="main-navigation">
-        <h1><a href="">Single blog</a> </h1>
-        <nav>
-            <a href="">All posts</a>
-        </nav>
-    </header>
+
     <section id="welcome">
         <header>
-            <img src="" alt="Swagata is the author of this blog"/>
+            <img src="{% static 'blog/images/one.jpg' %}" alt="Swagata is the author of this blog"/>
             <h2>Swagata's Blog</h2>
         </header>
         <p>Hi I am Swagata and I love to blog about tech and the world!</p>
@@ -28,18 +24,7 @@ My Blog
     <section id="latest-posts">
         <h2>My Latest post</h2>
         <ul>
-            <li>
-                <article class="post">
-                    <a href="">
-                        <img src="" alt="mountain hiking">
-                        <div class="post__content">
-                            <h2>Mountain Hiking</h2>
-                            <p>There's nothing like the views you get when hiking in the mountains! And I wasn't prepare for what happened
-                            while I was enjoying the view</p>
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% include "blog/includes/post.html" %}
         </ul>
     </section>
 
@@ -47,7 +32,7 @@ My Blog
         <h2>
             What I Do
         </h2>
-        <p> I love Programming and Love Dancer</p>
+        <p> I love Programming and Love To Dancer</p>
     </section>
 
 {% endblock %}
