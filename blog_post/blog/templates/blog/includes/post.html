@@ -1,12 +1,11 @@
 {% load static %}
 <li>
                 <article class="post">
-                    <a href="{% url 'single-post' 'the-mountains' %}">
-                        <img src="{% static 'blog/images/mountain.jpg' %}" alt="mountain hiking">
+                    <a href="{% url 'single-post' post.slug %}">
+                        <img src="{% static 'blog/images/'|add:post.image %}" alt={{post.title}}>
                         <div class="post__content">
-                            <h2>Mountain Hiking</h2>
-                            <p>There's nothing like the views you get when hiking in the mountains! And I wasn't prepare for what happened
-                            while I was enjoying the view</p>
+                            <h2>{{ post.title  }}</h2>
+                            <p>{{ post.excerpt }}</p>
                         </div>
                     </a>
                 </article>
